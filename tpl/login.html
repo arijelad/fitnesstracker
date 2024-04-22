@@ -38,13 +38,13 @@
     <div class="title">
         Login Form
     </div>
-    <form action="#">
+    <form action="add-user-form">
         <div class="field">
-            <input type="text" required>
+            <input type="text" name="email" required>
             <label>Email Address</label>
         </div>
         <div class="field">
-            <input type="password" required>
+            <input type="password" name="password" required>
             <label>Password</label>
         </div>
         <div class="content">
@@ -56,12 +56,15 @@
                 <a href="#">Forgot password?</a>
             </div>
         </div>
-        <div class="field">
-            <input type="submit" value="Login">
-        </div>
         <div class="signup-link">
             Not a member? <a href="register.html">Signup now</a>
         </div>
+        <button
+                type="button"
+                class="btn btn-info"
+                data-bs-toggle="modal"
+                data-bs-target="#add-user-modal"
+        >Login</button>
     </form>
 
 </div>
@@ -89,27 +92,27 @@
 <script src="tpl/assets/js/util.js"></script>
 <script src="tpl/assets/js/main.js"></script>
 <script>
-    // Target the form and the login button
-    const loginForm = document.querySelector('.wrapper form');
-    const loginButton = document.getElementById("login-btn");
+    UserService.reload_users_datatable();
 
-    // Add an event listener for the form submission
-    loginForm.addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent the default form submission
+    FormValidation.validate("#add-user-form", {}, function (data) {
+        Utils.block_ui("#add-user-modal");
+        $('#add-user-modal button[type="button"]').trigger("click");
 
-        // Extract the input values
-        const username = loginForm.querySelector('input[type="text"]').value;
-        const password = loginForm.querySelector('input[type="password"]').value;
-
-        // Log the input data
-        console.log("Username:", username);
-        console.log("Password:", password);
-
-        // Redirect to #home
-        setTimeout(() => {
-            window.location.href = "#home";
-        }, 1000);
+        RestClient.post(
+            "users/add",
+            data,
+            function (response) {
+                Utils.unblock_ui("#add-user-modal");
+                $("#add-user-modal").modal("toggle");
+                toastr.success("You have successfully login user.");
+                PatientService.reload_users_datatable();
+            },
+            function (xhr) {
+                toastr.error(error);
+            }
+        );
     });
+
 </script>
 </body>
 </html>
