@@ -2,17 +2,17 @@
 
 /**
  * @OA\Info(
- *   title="SkyBooker API",
- *   description="SkyBooker API documentation",
+ *   title="Fitness Tracker",
+ *   description="FitnessTracker API documentation",
  *   version="1.0",
  *   @OA\Contact(
- *     email="harun.musa@stu.ibu.edu.ba",
- *     name="Harun musa"
+ *     email="arijela.dervisevic@stu.ibu.edu.ba",
+ *     name="Arijela Dervisevic"
  *   )
  * ),
  * @OA\OpenApi(
  *   @OA\Server(
- *       url="http://localhost/skybooker/api"
+ *       url="http://localhost/fitnesstracker/api"
  *   )
  * )
  * @OA\SecurityScheme(
