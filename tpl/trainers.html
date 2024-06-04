@@ -136,34 +136,34 @@
                 .then((data) => {
                     console.log(data);
                     const users = data.users;
-                    const myUsers = users.slice(0, 3); // Get the first two users
+                    const myUsers = users.slice(0, 3);
 
                     // First
                     const user1Container = document.getElementById("firstUser");
                     firstUser.innerHTML = `
-            <img src="${myUsers[0].image}" alt="User Image">
-            <p class="user-quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
-            <p class="user-name">${myUsers[0].firstName} ${myUsers[0].lastName}</p>
-            <p>Email: ${myUsers[0].email}</p>
-          `;
+                    <img src="${myUsers[0].image}" alt="User Image">
+                    <p class="user-quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+                    <p class="user-name">${myUsers[0].firstName} ${myUsers[0].lastName}</p>
+                    <p>Email: ${myUsers[0].email}</p>
+                  `;
 
                     // Second
                     const user2Container = document.getElementById("secondUser");
                     secondUser.innerHTML = `
-            <img src="${myUsers[1].image}" alt="User Image">
-            <p class="user-quote">"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
-            <p class="user-name">${myUsers[1].firstName} ${myUsers[1].lastName}</p>
-            <p>Email: ${myUsers[1].email}</p>
-          `;
+                    <img src="${myUsers[1].image}" alt="User Image">
+                    <p class="user-quote">"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                    <p class="user-name">${myUsers[1].firstName} ${myUsers[1].lastName}</p>
+                    <p>Email: ${myUsers[1].email}</p>
+                  `;
                     //Third
                     // First
                     const user3Container = document.getElementById("thirdUser");
                     thirdUser.innerHTML = `
-            <img src="${myUsers[2].image}" alt="User Image">
-            <p class="user-quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
-            <p class="user-name">${myUsers[2].firstName} ${myUsers[2].lastName}</p>
-            <p>Email: ${myUsers[2].email}</p>
-          `;
+                    <img src="${myUsers[2].image}" alt="User Image">
+                    <p class="user-quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+                    <p class="user-name">${myUsers[2].firstName} ${myUsers[2].lastName}</p>
+                    <p>Email: ${myUsers[2].email}</p>
+                  `;
                 })
                 .catch((e) => console.error(e));
         </script>

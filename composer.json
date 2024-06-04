@@ -1,3 +1,6 @@
 {
-  "require": {}
+  "require": {
+    "mikecao/flight": "^1.3",
+    "flightphp/core": "^1.3"
+  }
 }
